@@ -1,8 +1,19 @@
-import 'buttons.dart';
+abstract class Product {
+  on();
 
-abstract class Products {
-  final CtrlButton button;
+  off();
+}
 
-  Products(this.button);
 
+// 执行者类
+class Light extends Product {
+  @override
+  on() {
+    print("=== turn on light ===");
+  }
+
+  @override
+  off() {
+    print("=== turn off light ===");
+  }
 }

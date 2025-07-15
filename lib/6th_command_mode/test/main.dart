@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: '遥控器'),
     );
   }
 }
@@ -30,12 +30,36 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
+  Widget createSlot() {
+    return Container(
+      child: Text("插槽"),
+    );
+  }
+
+  Widget createButton(VoidCallback click) {
+    return GestureDetector(
+      onTap: click,
+      child: Container(
+
+        child: Text("按钮"),
+      ),
+    );
+  }
+
+  Widget glueSlotAndButton(Widget slot, Widget button) {
+    return Container(
+      child: Row(
+        children: [
+          slot,
+          button
+        ],
+      ),
+    );
+  }
+
+  test() {
+
   }
 
   @override
@@ -46,24 +70,37 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
+        child: Container(
+          width: 500,
+          height: 800,
+          color: Colors.grey,
+          padding: EdgeInsets.only(top: 10, left: 10, right: 10, bottom: 10),
+          child: Row(
+            children: [
+              Row(
+                children: [
+                  SizedBox(height: 50, width: 250),
+                  Container(
+                    child: Text("on"),
+                  ),
+                  Container(
+                    child: Text("off"),
+                  ),
+                ],
+              ),
+              glueSlotAndButton(createSlot(), createButton(test)),
+              glueSlotAndButton(createSlot(), createButton(() { })),
+              glueSlotAndButton(createSlot(), createButton(() { })),
+              glueSlotAndButton(createSlot(), createButton(() { })),
+              glueSlotAndButton(createSlot(), createButton(() { })),
+              glueSlotAndButton(createSlot(), createButton(() { })),
+              glueSlotAndButton(createSlot(), createButton(() { })),
+              // UNDO
+              createButton(() { })
+            ],
+          ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),// This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
