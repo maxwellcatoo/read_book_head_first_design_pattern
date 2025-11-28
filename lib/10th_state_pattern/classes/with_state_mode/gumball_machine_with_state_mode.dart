@@ -1,4 +1,6 @@
-import 'package:head_first_design_pattern/10th_state_mode/classes/with_state_mode/state.dart';
+
+
+import 'package:head_first_design_pattern/10th_state_pattern/classes/with_state_mode/state.dart';
 
 class GumballMachineWithStateMode {
   late State soldOutState;

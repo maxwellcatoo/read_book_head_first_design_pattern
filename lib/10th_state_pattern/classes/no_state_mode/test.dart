@@ -1,4 +1,6 @@
-import 'package:head_first_design_pattern/10th_state_mode/classes/no_state_mode/gumballMachine.dart';
+
+
+import 'gumballMachine.dart';
 
 class GumballMachineTest {
   run() {

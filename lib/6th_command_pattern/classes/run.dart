@@ -1,6 +1,7 @@
-import 'package:head_first_design_pattern/6th_command_mode/classes/buttons.dart';
-import 'package:head_first_design_pattern/6th_command_mode/classes/commands.dart';
 
+
+import 'buttons.dart';
+import 'commands.dart';
 import 'products.dart';
 
 void main() {
